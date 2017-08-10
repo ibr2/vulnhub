@@ -1,0 +1,29 @@
+INITIALIZING
+
+install https://www.vulnhub.com/entry/pegasus-1,109/ 
+open with vmware 
+import 
+network must be NAT 
+
+###########################################
+
+Getting the IP stage:
+arp-scan -l                   $ to get the target IP address. For me it was 192.168.230.135
+
+###########################################
+
+Enumartion:
+
+nmap -sV -p- -A -vv 192.168.230.135
+
+result: 
+
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 5.9p1 Debian 5ubuntu1.4 (Ubuntu Linux; protocol 2.0)
+111/tcp   open  rpcbind 2-4 (RPC #100000)
+8088/tcp  open  http    nginx 1.1.19
+37916/tcp open  status  1 (RPC #100024)
+
+navigated to http://192.168.230.135:8080
+there was an image. I checked the source page & installed the img but nothing useful. I started brute forcing the dirs with DirBuster
+

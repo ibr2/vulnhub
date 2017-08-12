@@ -1,4 +1,11 @@
-Level: Intermediate 
+Level: Intermediate
+
+WalkThrough:
+https://github.com/Hamza-Megahed/CTFs/blob/master/super-mario/README
+http://resources.infosecinstitute.com/super-mario-ctf-walkthrough/#gref
+
+
+
 
  arp-scan -l 
 

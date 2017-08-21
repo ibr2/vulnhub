@@ -1,0 +1,14 @@
+nikto -h 192.168.230.145 
+
+##############################
+
+gobuster & dirb & dirbuster 
+
+
+DirB - /usr/share/dirb/wordlists/
+wfuzz - /usr/share/wfuzz/wordlist/
+SecList - /usr/share/seclists/            $$ SecList" which aims to cover as many general/generic wordlists as possible (for every topic)
+
+###########################
+
+rounte -n         $ Gateway 

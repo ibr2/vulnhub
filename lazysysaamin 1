@@ -1,0 +1,16 @@
+https://www.vulnhub.com/entry/lazysysaamin-1,205/
+
+WALKTHROUGH 
+
+enum4linux 192.168.230.152
+nmblookup -A 192.168.230.152
+rpcclient -U "" 192.168.230.152
+
+
+nmap -p445 --script=smb-os-discovery 192.168.230.152
+--script=smb-os-discovery : Attempts to determine the operating system, computer name, domain, workgroup, and current time over the SMB protocol (ports 445 or 139).
+
+nmap -p445 --script=smb-enum-shares 192.168.230.152
+
+smbclient -L //192.168.230.152/ -U lazysysadmin -p445
+

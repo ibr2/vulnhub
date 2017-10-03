@@ -2,18 +2,37 @@ https://www.vulnhub.com/entry/lazysysaamin-1,205/
 
 WALKTHROUGH 
 
-enum4linux 192.168.230.152
-nmblookup -A 192.168.230.152
-rpcclient -U "" 192.168.230.152
+$ enum4linux 192.168.230.152
+$ Domain=[WORKGROUP] OS=[Windows 6.1] Server=[Samba 4.3.11-Ubuntu]
+$ nmblookup -A 192.168.230.152
+$ rpcclient -U "" 192.168.230.152
+$ smbclient -L //192.168.230.152/ -U lazysysadmin -p445
 
-
-nmap -p445 --script=smb-os-discovery 192.168.230.152
---script=smb-os-discovery : Attempts to determine the operating system, computer name, domain, workgroup, and current time over the SMB protocol (ports 445 or 139).
-
-nmap -p445 --script=smb-enum-shares 192.168.230.152
-
-smbclient -L //192.168.230.152/ -U lazysysadmin -p445
 
 ref: http://h2-exploitation.blogspot.co.uk/2013/10/exploit-samba-smbclient.html
 ref: https://www.adampalmer.me/iodigitalsec/2013/08/10/windows-null-session-enumeration/
 ref: https://www.adampalmer.me/iodigitalsec/blog/
+
+#####nmap####
+$ nmap -p445 --script=smb-os-discovery 192.168.230.152
+--script=smb-os-discovery : Attempts to determine the operating system, computer name, domain, workgroup, and current time over the SMB protocol (ports 445 or 139).
+$ nmap -p445 --script=smb-enum-shares 192.168.230.152
+
+
+#Nikto scan:
++ Server: Apache/2.4.7 (Ubuntu)
++ Retrieved x-powered-by header: PHP/5.5.9-1ubuntu4.22
++ Entry '/Backnode_files/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ /wordpress/: A Wordpress installation was found.
++ /phpmyadmin/: phpMyAdmin directory found
+/old/
+
+$gobuster -u 192.168.230.152 -w /usr/share/wordlists/dirb/common.txt
+
+$gobuster -u http://192.168.230.152/wordpress/ -w /usr/share/wordlists/dirb/common.txt
+/index.php (Status: 301)
+/wp-admin (Status: 301)
+/wp-content (Status: 301)
+/wp-includes (Status: 301)
+
+<p>My name is togie.</p>

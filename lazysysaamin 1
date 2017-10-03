@@ -28,6 +28,10 @@ $ nmap -p445 --script=smb-enum-shares 192.168.230.152
 /old/
 
 $gobuster -u 192.168.230.152 -w /usr/share/wordlists/dirb/common.txt
+http://192.168.230.152/Backnode_files/
+http://192.168.230.152/phpmyadmin/
+http://192.168.230.152/wordpress/wp-login.php
+http://192.168.230.152/robots.txt
 
 $gobuster -u http://192.168.230.152/wordpress/ -w /usr/share/wordlists/dirb/common.txt
 /index.php (Status: 301)

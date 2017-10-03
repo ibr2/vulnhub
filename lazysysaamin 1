@@ -14,3 +14,5 @@ nmap -p445 --script=smb-enum-shares 192.168.230.152
 
 smbclient -L //192.168.230.152/ -U lazysysadmin -p445
 
+ref:http://h2-exploitation.blogspot.co.uk/2013/10/exploit-samba-smbclient.html
+https://www.adampalmer.me/iodigitalsec/2013/08/10/windows-null-session-enumeration/

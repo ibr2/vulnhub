@@ -40,3 +40,9 @@ $gobuster -u http://192.168.230.152/wordpress/ -w /usr/share/wordlists/dirb/comm
 /wp-includes (Status: 301)
 
 <p>My name is togie.</p>
+
+
+##############
+searchsploit apache|grep "2.4.7"
+Apache 2.4.7 - mod_status Scoreboard Handlin | ./linux/dos/34133.txt
+Apache 2.4.7 + PHP 7.0.2 - openssl_seal() Un | ./php/remote/40142.php
